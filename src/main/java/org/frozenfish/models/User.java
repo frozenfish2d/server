@@ -45,6 +45,12 @@ public class User implements UserDetails {
     private String bDay;
     private boolean active;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<UserRecord> userRecordSet;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<UserSpecialisation> userSpecialisationSet;
+
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
@@ -55,7 +61,8 @@ public class User implements UserDetails {
     }
 
     public User(String cardNumber, String firstName, String secondName, String middleName, String phoneNumber,
-                String address, String omsNumber, String username, String password, String email, String bDay, boolean active) {
+                String address, String omsNumber, String username, String password, String email, String bDay,
+                boolean active, Set<UserRecord> userRecordSet, Set<UserSpecialisation> userSpecialisationSet) {
         this.cardNumber = cardNumber;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -68,8 +75,12 @@ public class User implements UserDetails {
         this.email = email;
         this.bDay = bDay;
         this.active = active;
+        this.userRecordSet = userRecordSet;
+        this.userSpecialisationSet = userSpecialisationSet;
+    }
 
-
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getbDay() {
@@ -80,10 +91,11 @@ public class User implements UserDetails {
         this.bDay = bDay;
     }
 
-    public boolean isAdmin(){
+    public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
     }
-    public boolean isDoctor(){
+
+    public boolean isDoctor() {
         return roles.contains(Role.DOCTOR);
     }
 
@@ -193,7 +205,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles()   ;
+        return getRoles();
     }
 
     public String getPassword() {
@@ -212,5 +224,19 @@ public class User implements UserDetails {
         this.email = email;
     }
 
+    public Set<UserRecord> getUserRecordSet() {
+        return userRecordSet;
+    }
 
+    public void setUserRecordSet(Set<UserRecord> userRecordSet) {
+        this.userRecordSet = userRecordSet;
+    }
+
+    public Set<UserSpecialisation> getUserSpecialisationSet() {
+        return userSpecialisationSet;
+    }
+
+    public void setUserSpecialisationSet(Set<UserSpecialisation> userSpecialisationSet) {
+        this.userSpecialisationSet = userSpecialisationSet;
+    }
 }

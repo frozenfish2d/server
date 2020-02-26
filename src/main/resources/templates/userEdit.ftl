@@ -1,7 +1,7 @@
 <#import "parts/common.ftl" as common>
 <@common.page "Редактирование пользователя">
 
-<form action="/admin" method="post">
+<form action="/admin" method="post" xmlns="http://www.w3.org/1999/html">
 
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Фамилия:</label>
@@ -73,7 +73,16 @@
         </div>
     </#list>
     </div>
-
+    <#if user.roles?seq_contains('DOCTOR')>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Специализация:</label>
+            <select class="custom-select" name="specialisation" class="col-sm-5">
+            <#list specialisations as specialisation>
+                <option value="${specialisation.specializationId}">${specialisation.specialisationName}</option>
+            </#list>
+            </select>
+        </div>
+    </#if>
     <input type="hidden" name="userId" value="${user.userId}"/>
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     <div class="col-sm-8"><input type="submit" value="Сохранить" class="btn btn-secondary btn-lg btn-block"/></div>

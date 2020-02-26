@@ -68,7 +68,7 @@ public class MainController {
         userRepo.save(user);
 
 
-        return "redirect:/main";
+        return "redirect:/login?logout";
     }
 
 }

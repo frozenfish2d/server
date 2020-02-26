@@ -23,7 +23,6 @@ public class RecordController {
 
     ){
 
-        //TODO  select records by userId
         return "records";
     }
 

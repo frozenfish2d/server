@@ -5,7 +5,7 @@
         <div class="col-sm-6">
             <input type="text" name="secondName" placeholder="Фамилия"
                    value="<#if user??>${user.secondName}</#if>"
-                   class="form-control ${(secondNameError??)?string('is-invalid','')}"/>
+                   class="form-control ${(secondNameError??)?string('is-invalid','')}" required/>
             <#if secondNameError??>
                 <div class="invalid-feedback">
                     ${secondNameError}
@@ -19,7 +19,7 @@
         <div class="col-sm-6">
             <input type="text" name="firstName" placeholder="Имя"
                    value="<#if user??>${user.firstName}</#if>"
-                   class="form-control ${(firstNameError??)?string('is-invalid','')}"/>
+                   class="form-control ${(firstNameError??)?string('is-invalid','')}" required/>
             <#if firstNameError??>
                 <div class="invalid-feedback">
                     ${firstNameError}
@@ -61,7 +61,7 @@
         <div class="col-sm-6">
             <input type="text" name="address" placeholder="Адрес"
                    value="<#if user??>${user.address}</#if>"
-                   class="form-control ${(addressError??)?string('is-invalid','')}"/>
+                   class="form-control ${(addressError??)?string('is-invalid','')}" required/>
             <#if addressError??>
                 <div class="invalid-feedback">
                     ${addressError}
@@ -75,7 +75,7 @@
         <div class="col-sm-6">
             <input type="text" name="omsNumber" placeholder="Номер полиса ОМС"
                    value="<#if user??>${user.omsNumber}</#if>"
-                   class="form-control ${(omsNumberError??)?string('is-invalid','')}"/>
+                   class="form-control ${(omsNumberError??)?string('is-invalid','')}" required/>
             <#if omsNumberError??>
             <div class="invalid-feedback">
                 ${omsNumberError}
@@ -89,7 +89,7 @@
         <div class="col-sm-6">
             <input type="text" name="username" placeholder="Логин"
                    value="<#if user??>${user.username}</#if>"
-                   class="form-control ${(usernameError??)?string('is-invalid','')}"/>
+                   class="form-control ${(usernameError??)?string('is-invalid','')}" required/>
             <#if usernameError??>
             <div class="invalid-feedback">
                 ${usernameError}
@@ -102,7 +102,7 @@
         <label class="col-sm-2 col-form-label">* Пароль:</label>
         <div class="col-sm-6">
             <input type="password" name="password" placeholder="Пароль"
-                   class="form-control ${(passwordError??)?string('is-invalid','')}"/>
+                   class="form-control ${(passwordError??)?string('is-invalid','')}" required/>
             <#if passwordError??>
             <div class="invalid-feedback">
                 ${passwordError}
@@ -115,7 +115,7 @@
         <label class="col-sm-2 col-form-label">* Подтвердите пароль:</label>
         <div class="col-sm-6">
             <input type="password" name="passwordConfirm" placeholder="Подтвердите пароль"
-                   class="form-control ${(password2Error??)?string('is-invalid','')}"/>
+                   class="form-control ${(password2Error??)?string('is-invalid','')}" required/>
             <#if password2Error??>
                 <div class="invalid-feedback">
                     ${password2Error}
@@ -129,7 +129,7 @@
         <div class="col-sm-6">
             <input type="text" name="email" placeholder="E-mail"
                    value="<#if user??>${user.email}</#if>"
-                   class="form-control ${(emailError??)?string('is-invalid','')}"/>
+                   class="form-control ${(emailError??)?string('is-invalid','')}" required/>
             <#if emailError??>
             <div class="invalid-feedback">
                 ${emailError}

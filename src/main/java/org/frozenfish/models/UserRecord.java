@@ -14,8 +14,11 @@ public class UserRecord {
     private Integer userRecordId;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "record_id")
     private Record record;
 
     @ElementCollection(targetClass = States.class, fetch = FetchType.EAGER)
@@ -29,6 +32,10 @@ public class UserRecord {
     public UserRecord(User user, Record record) {
         this.user = user;
         this.record = record;
+    }
+
+    public Integer getUserRecordId() {
+        return userRecordId;
     }
 
     public User getUser() {

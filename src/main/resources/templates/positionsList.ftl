@@ -18,7 +18,7 @@
 
                 <td>${position.positionName}</td>
             </tr>
-</#list>
+    </#list>
 
 </table>
 

@@ -3,7 +3,7 @@
 
 <form action="/main/save" method="post">
 
-
+    <div><a href="/main">Назад </a> </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Номер телефона:</label>
         <div class="col-sm-6">
@@ -15,6 +15,13 @@
         <label class="col-sm-2 col-form-label">Адрес:</label>
         <div class="col-sm-6">
             <input type="text" name="address" value="${user.address}" class="form-control"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Номер полиса ОМС:</label>
+        <div class="col-sm-6">
+            <input type="text" name="omsNumber" value="${user.omsNumber}" class="form-control"/>
         </div>
     </div>
 
@@ -33,7 +40,7 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label">* Пароль:</label>
+        <label class="col-sm-2 col-form-label">Новый пароль:</label>
         <div class="col-sm-6">
            <input type="password" name="password"  class="form-control"/>
         </div>
@@ -43,6 +50,6 @@
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     <div class="col-sm-8"><input type="submit" value="Сохранить" class="btn btn-secondary btn-lg btn-block"/></div>
 </form>
-
+<div>После изменения данных, необходимо перелогиниться на сайте</div>
 
 </@common.page>

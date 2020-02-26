@@ -12,8 +12,14 @@ public class UserServices {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userServiceId;
+
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "service_id")
+    private Service service;
 
     @ElementCollection(targetClass = States.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "service_state", joinColumns = @JoinColumn(name = "user_id"))
@@ -23,9 +29,9 @@ public class UserServices {
     public UserServices() {
     }
 
-    public UserServices(User user) {
+    public UserServices(User user, Service service) {
         this.user = user;
-
+        this.service = service;
     }
 
     public User getUser() {
@@ -42,5 +48,13 @@ public class UserServices {
 
     public void setState(Set<Role> state) {
         this.state = state;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 }

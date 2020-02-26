@@ -18,7 +18,7 @@
             <tr>
                 <td>${specialisation.specialisationName}</td>
             </tr>
-</#list>
+    </#list>
 
 </table>
 

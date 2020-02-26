@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -76,9 +76,13 @@ public class AdminController {
     }
 
     @GetMapping("uid_{user}")
-    public String userEdit(@PathVariable User user, Model model) {
+    public String userEdit(
+            @PathVariable User user,
+            Model model) {
+        //Set<UserSpecialisation> specialisations = user.getUserSpecialisationSet();
         model.addAttribute("user", user);
         model.addAttribute("roles", Role.values());
+        model.addAttribute("specialisations", specialisationsRepo.findAll());
         return "userEdit";
     }
 
@@ -102,7 +106,7 @@ public class AdminController {
     public String addService(@RequestParam String serviceName,
                              @RequestParam Double servicePrice) {
         if (serviceName != null && !serviceName.isEmpty()) {
-            servicesRepo.save(new Service(serviceName, servicePrice));
+            servicesRepo.save(new Service(serviceName, servicePrice, Collections.emptySet()));
         }
         return "redirect:/admin/services";
     }
@@ -110,7 +114,7 @@ public class AdminController {
     @PostMapping("add_specialisation")
     public String addSpecialisation(@RequestParam String specialisationName) {
         if (specialisationName != null && !specialisationName.isEmpty()) {
-            specialisationsRepo.save(new Specialization(specialisationName));
+            specialisationsRepo.save(new Specialisation(specialisationName, Collections.emptySet()));
         }
         return "redirect:/admin/specialisations";
     }
@@ -157,7 +161,6 @@ public class AdminController {
         if (username != null && !username.isEmpty()) {
             user.setUsername(username);
         }
-
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());
