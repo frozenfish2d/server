@@ -11,7 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Личный кабинет</a>
             </li>
-            <#if !isDoctor&&!isAdmin>
+            <#if !isDoctor&&!isAdmin&&isLogged>
                 <li class="nav-item">
                     <a class="nav-link" href="/records">Записаться к врачу</a>
                 </li>

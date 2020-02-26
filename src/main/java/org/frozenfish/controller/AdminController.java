@@ -108,7 +108,7 @@ public class AdminController {
     }
 
     @PostMapping("add_specialisation")
-    public String addService(@RequestParam String specialisationName) {
+    public String addSpecialisation(@RequestParam String specialisationName) {
         if (specialisationName != null && !specialisationName.isEmpty()) {
             specialisationsRepo.save(new Specialization(specialisationName));
         }

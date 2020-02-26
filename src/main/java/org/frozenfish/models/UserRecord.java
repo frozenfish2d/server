@@ -19,7 +19,7 @@ public class UserRecord {
     private Record record;
 
     @ElementCollection(targetClass = States.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "record_state", joinColumns = @JoinColumn(name = "user_id"))
+    @CollectionTable(name = "record_state", joinColumns = @JoinColumn(name = "user_record_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> state;
 

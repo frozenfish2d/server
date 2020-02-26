@@ -18,7 +18,7 @@
     ${user.email}
 </div>
 <div>
-    <a href="">Изменить данные</a>
+    <a href="main/edit">Изменить данные</a>
 </div>
 
 <h3>Мои записи</h3>
