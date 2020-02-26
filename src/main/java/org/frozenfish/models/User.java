@@ -13,8 +13,6 @@ import java.util.Set;
 
 @Entity
 public class User implements UserDetails {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
@@ -28,11 +26,12 @@ public class User implements UserDetails {
     private String secondName;
     private String middleName;
 
-    @NotBlank(message = "Заполните поле Номер телефона")
     private String phoneNumber;
 
     @NotBlank(message = "Заполните поле Адрес")
     private String address;
+
+    @NotBlank(message = "Заполните номер полиса ОМС")
     private String omsNumber;
 
     @NotBlank(message = "Заполните поле Логин")
@@ -41,6 +40,7 @@ public class User implements UserDetails {
     @NotBlank(message = "Пароль не может быть пустым")
     private String password;
     @Email
+    @NotBlank(message = "Заполните поле Email")
     private String email;
     private String bDay;
     private boolean active;

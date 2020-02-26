@@ -3,7 +3,7 @@
 
 <h3>Личный кабинет</h3>
 <div>
-    ${user.secondName} ${user.firstName} ${user.middleName}
+    ${user.firstName} ${user.middleName}
 </div>
 <div>
     ${user.omsNumber}
@@ -17,9 +17,12 @@
 <div>
     ${user.email}
 </div>
+<div>
+    <a href="">Изменить данные</a>
+</div>
 
 <h3>Мои записи</h3>
-
+<div>Нет записей</div>
 <h3>Архив</h3>
-
+<div>Нет записей</div>
 </@common.page>
